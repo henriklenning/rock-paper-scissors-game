@@ -1,0 +1,1 @@
+This website is going to contain a simple rock paper scissors game. Later on, in an early future, a gui is going to be added. 
