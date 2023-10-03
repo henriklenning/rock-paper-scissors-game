@@ -63,7 +63,8 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-const playerSelection = "SCISSORS";
+let userWeapon = prompt("Choose your weapon!");
+const playerSelection = userWeapon.toUpperCase();
 const computerSelection = getComputerChoice();
 
 console.log(playRound(playerSelection, computerSelection));
