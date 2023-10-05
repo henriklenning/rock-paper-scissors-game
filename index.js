@@ -1,73 +1,149 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
-  let computerChoice = Math.floor(Math.random() * (4 - 1)) + 1;
-  if (computerChoice == 1) {
-    return "Rock";
-  } else if (computerChoice == 2) {
-    return "Paper";
+  let computerChoice = Math.floor(Math.random() * 3); // Generates a random number between 0 and 2
+  if (computerChoice === 0) {
+    return "ROCK";
+  } else if (computerChoice === 1) {
+    return "PAPER";
   } else {
-    return "Scissors";
+    return "SCISSORS";
   }
 }
 
-// function playRound(playerSelection, computerSelection) {
-//   if (playerSelection === "ROCK" && computerSelection === "Rock") {
-//     console.log("It's a tie!");
-//   }
-//   if (playerSelection === "ROCK" && computerSelection === "Paper") {
-//     console.log("Player lost!");
-//   }
-//   if (playerSelection === "ROCK" && computerSelection === "Scissor") {
-//     console.log("Player wins!");
-//   }
-//   if (playerSelection === "PAPER" && computerSelection === "Rock") {
-//     console.log("Player wins!");
-//   }
-//   if (playerSelection === "PAPER" && computerSelection === "Paper") {
-//     console.log("It's a tie!");
-//   }
-//   if (playerSelection === "PAPER" && computerSelection === "Scissor") {
-//     console.log("Player lost!");
-//   }
-//   if (playerSelection === "SCISSORS" && computerSelection === "Rock") {
-//     console.log("Player lost!");
-//   }
-//   if (playerSelection === "SCISSORS" && computerSelection === "Paper") {
-//     console.log("Player wins!");
-//   }
-//   if (playerSelection === "SCISSORS" && computerSelection === "Scissor") {
-//     console.log("It's a tie!");
-//   }
-// }
+//Plays one round of rock paper scissors and displays current standing after the round
 
 function playRound(playerSelection, computerSelection) {
   if (
-    (computerSelection === "Rock" && playerSelection === "ROCK") ||
-    (computerSelection === "Paper" && playerSelection === "PAPER") ||
-    (computerSelection === "Scissors" && playerSelection === "SCISSORS")
+    (computerSelection === "ROCK" && playerSelection === "ROCK") ||
+    (computerSelection === "PAPER" && playerSelection === "PAPER") ||
+    (computerSelection === "SCISSORS" && playerSelection === "SCISSORS")
   ) {
-    return "A tie!";
+    alert(
+      "Computer choose" +
+        " " +
+        computerSelection +
+        "." +
+        " " +
+        computerSelection +
+        " " +
+        "is equal to" +
+        " " +
+        playerSelection +
+        ". " +
+        "A tie!\n" +
+        "Current standing:" +
+        " " +
+        playerScore +
+        " " +
+        "to" +
+        " " +
+        computerScore
+    );
   }
   if (
-    (computerSelection === "Rock" && playerSelection === "PAPER") ||
-    (computerSelection === "Paper" && playerSelection === "SCISSORS") ||
-    (computerSelection === "Scissors" && playerSelection === "ROCK")
+    (computerSelection === "ROCK" && playerSelection === "PAPER") ||
+    (computerSelection === "PAPER" && playerSelection === "SCISSORS") ||
+    (computerSelection === "SCISSORS" && playerSelection === "ROCK")
   ) {
-    return "You loose!";
+    playerScore++;
+    alert(
+      "Computer choose" +
+        " " +
+        computerSelection +
+        "." +
+        " " +
+        computerSelection +
+        " " +
+        "looses to" +
+        " " +
+        playerSelection +
+        ". " +
+        "You win!\n" +
+        "Current standing:" +
+        " " +
+        playerScore +
+        " " +
+        "to" +
+        " " +
+        computerScore
+    );
   }
   if (
-    (computerSelection === "Rock" && playerSelection === "SCISSORS") ||
-    (computerSelection === "Paper" && playerSelection === "ROCK") ||
-    (computerSelection === "Scissors" && playerSelection === "PAPER")
+    (computerSelection === "ROCK" && playerSelection === "SCISSORS") ||
+    (computerSelection === "PAPER" && playerSelection === "ROCK") ||
+    (computerSelection === "SCISSORS" && playerSelection === "PAPER")
   ) {
-    return "You win!";
+    computerScore++;
+    alert(
+      "Computer choose" +
+        " " +
+        computerSelection +
+        "." +
+        " " +
+        computerSelection +
+        " " +
+        "beats" +
+        " " +
+        playerSelection +
+        ". " +
+        "You lost!\n" +
+        "Current standing:" +
+        " " +
+        playerScore +
+        " " +
+        "to" +
+        " " +
+        computerScore
+    );
   }
 }
 
-let userWeapon = prompt("Choose your weapon!");
-const playerSelection = userWeapon.toUpperCase();
-const computerSelection = getComputerChoice();
+//Plays five rounds of rock paper scissors (one game)
 
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+  while (computerScore < 5 && playerScore < 5) {
+    let userWeapon = prompt(
+      "Choose your weapon!\nType rock, paper or scissors into the prompt box below:"
+    );
+    const playerSelection = userWeapon.toUpperCase();
+
+    if (
+      playerSelection !== "ROCK" &&
+      playerSelection !== "PAPER" &&
+      playerSelection !== "SCISSORS"
+    ) {
+      alert("Invalid choice. Please choose rock, paper, or scissors.");
+      continue;
+    }
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
+    if (playerScore == 5) {
+      alert(
+        "You win the game!\n" + playerScore + " " + "to" + " " + computerScore
+      );
+    } else if (computerScore == 5) {
+      alert(
+        "Computer wins the game! \n" +
+          playerScore +
+          " " +
+          "to" +
+          " " +
+          computerScore
+      );
+    }
+  }
+}
+
+game();
+
+// let userWeapon = prompt("Choose your weapon!\nType rock, paper or scissors into the prompt box below");
+// const playerSelection = userWeapon.toUpperCase();
+// const computerSelection = getComputerChoice();
+
+// console.log(playRound(playerSelection, computerSelection));
 
 // console.log(playRound(playerSelection, computerSelection));
 
