@@ -100,44 +100,50 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+
+
+
+
+
+
 //Plays five rounds of rock paper scissors (one game)
 
-function game() {
-  while (computerScore < 5 && playerScore < 5) {
-    let userWeapon = prompt(
-      "Choose your weapon!\nType rock, paper or scissors into the prompt box below:"
-    );
-    const playerSelection = userWeapon.toUpperCase();
+// function game() {
+//   while (computerScore < 5 && playerScore < 5) {
+//     let userWeapon = prompt(
+//       "Choose your weapon!\nType rock, paper or scissors into the prompt box below:"
+//     );
+//     const playerSelection = userWeapon.toUpperCase();
 
-    if (
-      playerSelection !== "ROCK" &&
-      playerSelection !== "PAPER" &&
-      playerSelection !== "SCISSORS"
-    ) {
-      alert("Invalid choice. Please choose rock, paper, or scissors.");
-      continue;
-    }
-    const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
+//     if (
+//       playerSelection !== "ROCK" &&
+//       playerSelection !== "PAPER" &&
+//       playerSelection !== "SCISSORS"
+//     ) {
+//       alert("Invalid choice. Please choose rock, paper, or scissors.");
+//       continue;
+//     }
+//     const computerSelection = getComputerChoice();
+//     console.log(playRound(playerSelection, computerSelection));
 
-    if (playerScore == 5) {
-      alert(
-        "You win the game!\n" + playerScore + " " + "to" + " " + computerScore
-      );
-    } else if (computerScore == 5) {
-      alert(
-        "Computer wins the game! \n" +
-          playerScore +
-          " " +
-          "to" +
-          " " +
-          computerScore
-      );
-    }
-  }
-}
+//     if (playerScore == 5) {
+//       alert(
+//         "You win the game!\n" + playerScore + " " + "to" + " " + computerScore
+//       );
+//     } else if (computerScore == 5) {
+//       alert(
+//         "Computer wins the game! \n" +
+//           playerScore +
+//           " " +
+//           "to" +
+//           " " +
+//           computerScore
+//       );
+//     }
+//   }
+// }
 
-game();
+// game();
 
 // let userWeapon = prompt("Choose your weapon!\nType rock, paper or scissors into the prompt box below");
 // const playerSelection = userWeapon.toUpperCase();
