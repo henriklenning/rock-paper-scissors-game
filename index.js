@@ -1,7 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
 
-function getComputerChoice() {
+function getRandomChoice() {
   let computerChoice = Math.floor(Math.random() * 3); // Generates a random number between 0 and 2
   if (computerChoice === 0) {
     return "ROCK";
@@ -12,6 +12,12 @@ function getComputerChoice() {
   }
 }
 
+let playerSelection = "";
+
+function isGameOver() {
+  return playerScore === 5 || computerScore === 5;
+}
+
 //Plays one round of rock paper scissors and displays current standing after the round
 
 function playRound(playerSelection, computerSelection) {
@@ -20,27 +26,8 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "PAPER" && playerSelection === "PAPER") ||
     (computerSelection === "SCISSORS" && playerSelection === "SCISSORS")
   ) {
-    alert(
-      "Computer choose" +
-        " " +
-        computerSelection +
-        "." +
-        " " +
-        computerSelection +
-        " " +
-        "is equal to" +
-        " " +
-        playerSelection +
-        ". " +
-        "A tie!\n" +
-        "Current standing:" +
-        " " +
-        playerScore +
-        " " +
-        "to" +
-        " " +
-        computerScore
-    );
+    console.log("Tie!");
+    document.getElementById("textResult").textContent = "Tie!";
   }
   if (
     (computerSelection === "ROCK" && playerSelection === "PAPER") ||
@@ -48,27 +35,8 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "SCISSORS" && playerSelection === "ROCK")
   ) {
     playerScore++;
-    alert(
-      "Computer choose" +
-        " " +
-        computerSelection +
-        "." +
-        " " +
-        computerSelection +
-        " " +
-        "looses to" +
-        " " +
-        playerSelection +
-        ". " +
-        "You win!\n" +
-        "Current standing:" +
-        " " +
-        playerScore +
-        " " +
-        "to" +
-        " " +
-        computerScore
-    );
+    console.log("Won!");
+    document.getElementById("textResult").textContent = "Won!";
   }
   if (
     (computerSelection === "ROCK" && playerSelection === "SCISSORS") ||
@@ -76,35 +44,25 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "SCISSORS" && playerSelection === "PAPER")
   ) {
     computerScore++;
-    alert(
-      "Computer choose" +
-        " " +
-        computerSelection +
-        "." +
-        " " +
-        computerSelection +
-        " " +
-        "beats" +
-        " " +
-        playerSelection +
-        ". " +
-        "You lost!\n" +
-        "Current standing:" +
-        " " +
-        playerScore +
-        " " +
-        "to" +
-        " " +
-        computerScore
-    );
+    console.log("Lost!");
+    document.getElementById("textResult").textContent = "Lost!";
   }
 }
 
+const btnRock = document.getElementById("btnRock");
+btnRock.addEventListener("click", () => {
+  playRound("ROCK", getRandomChoice());
+});
 
+const btnPaper = document.getElementById("btnPaper");
+btnPaper.addEventListener("click", () => {
+  playRound("PAPER", getRandomChoice());
+});
 
-
-
-
+const btnScissors = document.getElementById("btnScissors");
+btnScissors.addEventListener("click", () => {
+  playRound("SCISSORS", getRandomChoice());
+});
 
 //Plays five rounds of rock paper scissors (one game)
 
