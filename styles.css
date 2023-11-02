@@ -1,0 +1,39 @@
+#frame {
+    padding-top: 20px;
+    width: 400px;
+    height: 400px;
+    background-color: antiquewhite;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnRock {
+    height: 20px;
+    width: 20px;
+}
+
+.btnPaper {
+    height: 20px;
+    width: 20px;
+}
+
+.btnScissors {
+    height: 20px;
+    width: 20px;
+}
+
+#result {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+}
+
+#textResult {
+    color: white;
+}
