@@ -1,39 +1,86 @@
-#frame {
-    padding-top: 20px;
-    width: 400px;
-    height: 400px;
-    background-color: antiquewhite;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.buttons {
-    display: flex;
-    justify-content: space-around;
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #7395ae;
 }
 
-.btnRock {
-    height: 20px;
-    width: 20px;
+#header {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  background-color: #557a95;
 }
 
-.btnPaper {
-    height: 20px;
-    width: 20px;
+#footer {
+  margin-top: auto;
+  height: 40px;
+  width: 100%;
+  background-color: #557a95;
 }
 
-.btnScissors {
-    height: 20px;
-    width: 20px;
+#gameFrame {
+  padding-top: 20px;
+  width: 400px;
+  height: 400px;
+  background-color: #828188;
+  border-radius: 20px;
 }
 
-#result {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    width: 200px;
-    height: 200px;
-    background-color: black;
+#buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+#btnRock {
+  padding: 10px;
+  width: auto;
+  border-radius: 20px;
+  background-color: #557a95;
+  color: white;
+}
+
+#btnPaper {
+  padding: 10px;
+  width: auto;
+  border-radius: 20px;
+  background-color: #557a95;
+  color: white;
+}
+
+#btnScissors {
+  padding: 10px;
+  width: auto;
+  border-radius: 20px;
+  background-color: #557a95;
+  color: white;
+}
+
+#resultBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  width: 200px;
+  height: 200px;
+  background-color: #5d5c61;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
 }
 
 #textResult {
+  color: white;
+}
+
+#textCurrentScore {
     color: white;
 }
