@@ -1,3 +1,5 @@
+/* #5d5c61, #379683, #7395ae, #557a95, #b1a296 */
+
 * {
   margin: 0;
   padding: 0;
@@ -68,9 +70,9 @@ body {
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 80px;
-  width: 200px;
-  height: 200px;
+  margin-top: 60px;
+  width: 250px;
+  height: 250px;
   background-color: #5d5c61;
   border-radius: 20px;
   border-style: solid;
@@ -82,5 +84,5 @@ body {
 }
 
 #textCurrentScore {
-    color: white;
+  color: white;
 }
