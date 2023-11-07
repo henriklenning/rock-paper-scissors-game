@@ -65,13 +65,6 @@ function isGameOver() {
   }
 }
 
-function restartGame (score1, score2) {
-  score1 = playerScore;
-  score2 = computerScore;
-  document.getElementById("textResult").textContent = "";
-  document.getElementById("textCurrentScore").textContent = "";
-}
-
 const btnRock = document.getElementById("btnRock");
 btnRock.addEventListener("click", () => {
   playRound("ROCK", getRandomChoice());
