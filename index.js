@@ -14,10 +14,6 @@ function getRandomChoice() {
 
 let playerSelection = "";
 
-function isGameOver() {
-  return playerScore === 5 || computerScore === 5;
-}
-
 //Plays one round of rock paper scissors and displays current standing after the round
 
 function playRound(playerSelection, computerSelection) {
@@ -28,6 +24,8 @@ function playRound(playerSelection, computerSelection) {
   ) {
     console.log("Tie!");
     document.getElementById("textResult").textContent = "Tie!";
+    document.getElementById("textCurrentScore").textContent =
+      "Player: " + playerScore + " Computer: " + computerScore;
   }
   if (
     (computerSelection === "ROCK" && playerSelection === "PAPER") ||
@@ -37,6 +35,8 @@ function playRound(playerSelection, computerSelection) {
     playerScore++;
     console.log("Won!");
     document.getElementById("textResult").textContent = "Won!";
+    document.getElementById("textCurrentScore").textContent =
+      "Player: " + playerScore + " Computer: " + computerScore;
   }
   if (
     (computerSelection === "ROCK" && playerSelection === "SCISSORS") ||
@@ -46,22 +46,49 @@ function playRound(playerSelection, computerSelection) {
     computerScore++;
     console.log("Lost!");
     document.getElementById("textResult").textContent = "Lost!";
+    document.getElementById("textCurrentScore").textContent =
+      "Player: " + playerScore + " Computer: " + computerScore;
   }
+}
+
+function isGameOver() {
+  if (playerScore === 5) {
+    document.getElementById("textResult").textContent = "YOU WON!";
+    document.getElementById("textCurrentScore").textContent =
+      "Final score: " + playerScore + " to " + computerScore;
+  }
+
+  if (computerScore === 5) {
+    document.getElementById("textResult").textContent = "YOU LOST!";
+    document.getElementById("textCurrentScore").textContent =
+      "Final score: " + playerScore + " to " + computerScore;
+  }
+}
+
+function restartGame (score1, score2) {
+  score1 = playerScore;
+  score2 = computerScore;
+  document.getElementById("textResult").textContent = "";
+  document.getElementById("textCurrentScore").textContent = "";
 }
 
 const btnRock = document.getElementById("btnRock");
 btnRock.addEventListener("click", () => {
   playRound("ROCK", getRandomChoice());
+  isGameOver();
 });
 
 const btnPaper = document.getElementById("btnPaper");
 btnPaper.addEventListener("click", () => {
   playRound("PAPER", getRandomChoice());
+  isGameOver();
 });
+
 
 const btnScissors = document.getElementById("btnScissors");
 btnScissors.addEventListener("click", () => {
   playRound("SCISSORS", getRandomChoice());
+  isGameOver();
 });
 
 //Plays five rounds of rock paper scissors (one game)
